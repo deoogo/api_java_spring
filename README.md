@@ -8,3 +8,15 @@ CREATE DATABASE cliente;
 CREATE TABLE tbl_clientes ( ID_Autor integer CONSTRAINT id PRIMARY KEY, nome varchar(30) );
 
 
+
+# Proximos passoas
+- [x] Desenvolvimento da api simples
+- [x] Persistencia no banco postgres
+- [x] Adicionando o projeto no docker e criando DockerFile
+- [ ] Adicionando o projeto no K8S local
+- [ ] Levando fase 1 do projeto para o GKE
+- [ ] CI/CD com os recursos da GCP
+- [ ] Desenvolvimento do Front
+- [ ] Desenvolvimento da função que escreve na Fila
+- [ ] Criação do Terraform infra GCP
+- [ ] Teste Final 
