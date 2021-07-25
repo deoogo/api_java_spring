@@ -17,6 +17,7 @@
 - [x] Desenvolvimento da api simples
 - [x] Persistencia no banco postgres
 - [x] Adicionando o projeto no docker e criando DockerFile
+- [ ] Docker Composer para desenvolvemento local
 - [ ] Adicionando o projeto no K8S local
 - [ ] Levando fase 1 do projeto para o GKE
 - [ ] CI/CD com os recursos da GCP
