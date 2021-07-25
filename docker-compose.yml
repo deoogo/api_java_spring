@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  app:
+    image: 'didis/api-spring:v1'
+    ports:
+            - "8080:8080"
+    build:
+      context: .
+    container_name: app_dev
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=mysecretpassword
+      - spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true    
+          
+  db:
+    image: 'didis/postgres_spring:v1'
+    container_name: db_dev
+    ports:
+      - "5432:5432"      
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
