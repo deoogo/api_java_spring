@@ -1,0 +1,13 @@
+# App Java ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  labels:
+    app: app
+data:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://192.168.99.100:32505/testdb"
+  SPRING_DATASOURCE_USERNAME: testdbuser
+  SPRING_DATASOURCE_PASSWORD: testdbuserpassword
+  
+
