@@ -34,20 +34,6 @@ pipeline {
               }
 
         }
-
-        stage('Deploy'){
-            steps{
-                git url: 'https://github.com/deoogo/api_java_spring.git', 
-                credentialsId: 'github',
-                branch: 'main'
-            sh '''
-                git add .
-                git commit -m "new $tag"
-                git push origin main
-            '''
-             }
-        }
-
         
     }
 }
