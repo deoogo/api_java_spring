@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages{
-        stage('Baixando o Repo'){
+        stage('Clone'){
             steps {
                 git url: 'https://github.com/deoogo/api_java_spring.git', branch: 'main'
                  
@@ -10,7 +10,7 @@ pipeline {
 
         }
 
-        stage('Build da aplicação'){
+        stage('Build app'){
             steps {
                  sh 'mvn -B -DskipTests clean package'
             }
@@ -46,7 +46,7 @@ pipeline {
                     cd /tmp/api_java_spring
                     git config user.name 'my-ci-user'
                     git config user.email 'diogonbaa@jenkins'
-                    git add . && git commit -am "v3"
+                    git add . && git commit -am "$tag"
                     git push origin main
                 ''')
             }
