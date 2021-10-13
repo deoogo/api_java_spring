@@ -36,14 +36,12 @@ pipeline {
         }
 
         stage('Deploy'){
-            environment { 
-            GIT_AUTH = credentials('github') 
-            }
+            
             steps {
                 sh('''
-                    git checkout -B main
+                    git clone git@github.com:deoogo/api_java_spring.git
                     git config user.name 'my-ci-user'
-                    git config user.email 'my-ci-user@users.noreply.github.example.com'
+                    git config user.email 'diogonbaa@jenkins'
                     git add . && git commit -am "v3"
                     git push origin main
                 ''')
