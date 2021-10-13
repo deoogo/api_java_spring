@@ -27,7 +27,7 @@ pipeline {
             steps{
                 sh 'docker push didis/api-spring:$tag'
             
-            }
+              }
 
         }
 
