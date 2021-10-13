@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: didis/api-spring:v4
+        image: didis/api-spring:v5
         ports:
         - containerPort: 8080
         envFrom:
