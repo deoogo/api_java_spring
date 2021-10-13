@@ -40,6 +40,8 @@ pipeline {
             steps {
                 sh('''
                     git clone git@github.com:deoogo/api_java_spring.git
+                    cp k8s/app_deployment.yml api_java_spring/k8s/app_deployment.yml
+                    cd api_java_spring
                     git config user.name 'my-ci-user'
                     git config user.email 'diogonbaa@jenkins'
                     git add . && git commit -am "v3"
