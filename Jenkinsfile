@@ -36,17 +36,20 @@ pipeline {
         }
 
         stage('Deploy'){
+            environment { 
+            GIT_AUTH = credentials('github') 
+            }
             steps {
-                sshagent (credentials: ['github']) {
-                     sh '''
-                        git clone https://github.com/deoogo/api_java_spring.git
-                        cd api_java_spring
-                        git config --global user.name "diogo_ci"
-                        git config --global user.email diogonbaa@gmail.com
-                        git commit -am ' version v3'
-                        git push origin main
-                     '''
-                  }
+                sh('''
+                    git checkout -B main
+                    git config user.name 'my-ci-user'
+                    git config user.email 'my-ci-user@users.noreply.github.example.com'
+                    git add . && git commit -am "v3"
+
+                    git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
+                    git push origin main
+                ''')
+            }
                  
             }
 
