@@ -8,10 +8,19 @@ pipeline {
             }
 
         }
+
+        stage('Build da aplicação'){
+            steps {
+                 sh 'mvn -B -DskipTests clean package'
+            }
+
+        }
+
         stage('Build Image Docker'){
             steps {
-                script{
-                    dockerpp = docker.build("didis/api-spring:${env.BUILD}", '-f ./Dockerfile .')
+                step{
+                   sh 'docker build --build-arg JAR_FILE=target/*.jar -t didis/api-spring:v2 .'
+                    
                 } 
             }
 
