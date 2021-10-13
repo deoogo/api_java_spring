@@ -26,9 +26,9 @@ pipeline {
         stage('Docker push Image'){
             steps{
                 sh 'docker push didis/api-spring:$tag'
-                sh ''' 
+                sh script: $/
                  sed -i "s/didis\/api-spring:.*/didis\/api-spring:v3/g" k8s/app_deployment.yml
-                '''
+                /$
                 sh 'grep image k8s/app_deployment.yml '
               }
 
