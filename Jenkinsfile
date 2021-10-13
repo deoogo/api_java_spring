@@ -34,6 +34,25 @@ pipeline {
               }
 
         }
+
+        stage('Deploy'){
+            steps {
+                sshagent (credentials: ['github']) {
+                     sh '''
+                        git clone https://github.com/deoogo/api_java_spring.git
+                        cd api_java_spring
+                        git config --global user.name "diogo_ci"
+                        git config --global user.email diogonbaa@gmail.com
+                        git commit -am ' version v3'
+                        git push origin main
+                     '''
+                  }
+                 
+            }
+
+        }
+
+
         
     }
 }
