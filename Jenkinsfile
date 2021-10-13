@@ -18,10 +18,8 @@ pipeline {
 
         stage('Build Image Docker'){
             steps {
-                step{
-                   sh 'docker build --build-arg JAR_FILE=target/*.jar -t didis/api-spring:v2 .'
-                    
-                } 
+            
+                   sh 'docker build --build-arg JAR_FILE=target/*.jar -t didis/api-spring:v2 .' 
             }
 
         }
