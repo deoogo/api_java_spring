@@ -42,7 +42,7 @@ pipeline {
                     rm -rf /tmp/api_java_spring
                     cd /tmp
                     git clone git@github.com:deoogo/api_java_spring.git
-                    cp k8s/app_deployment.yml /tmp/api_java_spring/k8s/app_deployment.yml
+                    cp /var/lib/jenkins/workspace/teste/k8s/app_deployment.yml /tmp/api_java_spring/k8s/app_deployment.yml
                     cd /tmp/api_java_spring
                     git config user.name 'my-ci-user'
                     git config user.email 'diogonbaa@jenkins'
