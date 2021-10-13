@@ -18,11 +18,20 @@ pipeline {
 
         stage('Build Image Docker'){
             steps {
-            
-                   sh 'docker build --build-arg JAR_FILE=target/*.jar -t didis/api-spring:$tag .' 
+                sh 'docker build --build-arg JAR_FILE=target/*.jar -t didis/api-spring:$tag .' 
             }
 
         }
+
+        stage('Docker push Image'){
+            script {
+                docker.withRegistry('https://registry.hub.docker.com','dockerhub')
+                docker.push('$tag') 
+            }
+
+        }
+
+
         
     }
 }
