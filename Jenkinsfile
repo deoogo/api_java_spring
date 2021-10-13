@@ -50,10 +50,11 @@ pipeline {
                     git push origin main
                 ''')
             }
-                 
-            }
+        }    
+           
+     }
 
-        }
+
 
 
         
