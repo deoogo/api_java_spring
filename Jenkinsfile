@@ -25,12 +25,8 @@ pipeline {
 
         stage('Docker push Image'){
             steps{
-            script {
-                docker.withRegistry('https://registry.hub.docker.com','dockerhub')
-                docker.push('latest')
-                docker.push('$tag')
-
-                }
+                sh 'docker push didis/api-spring:$tag'
+            
             }
 
         }
