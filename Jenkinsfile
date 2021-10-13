@@ -28,6 +28,7 @@ pipeline {
             script {
                 docker.withRegistry('https://registry.hub.docker.com','dockerhub')
                 docker.push('latest')
+                docker.push('$tag')
 
                 }
             }
